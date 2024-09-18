@@ -1,0 +1,112 @@
+<html>
+
+    <head>
+        <title>INST337_lab4</title>
+
+        <style>
+            
+            body {
+                background-color: rgb(104, 175, 216);
+            }
+
+
+            .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 95%;
+            margin: 0 auto;
+            }
+            .section {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(111, 57, 236);
+            border: 2px solid rgb(248, 247, 247);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .Fields {
+            text-align: center;
+        }
+            .section label {
+                color: azure;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>INST377 - Lab 4 By Steve Tanekeu</h1>
+        <div class="container">
+            <div class="section">
+                <form name="contactForm" onsubmit="return(Alertname())">
+                    <div class="Fields">
+                        <label for="Name">Name: </label>
+                        <input type="text" id="Name" required>
+                        <input type="submit" value="Alert me!">
+                        <br>
+                        
+                    </div>
+                    <script>
+                        function Alertname(){
+                            var namevalue = document.getElementById("Name").value
+                            alert("Hello " + namevalue + '!');
+                            return false
+                        }
+
+                    </script>
+                </form>
+            </div>
+            <div class="section">
+                <button onclick="changeColor()">Change Color</button>
+                    
+                <script type = "text/javascript">
+                    function changeColor(){
+                        if (document.body.style.backgroundColor == 'rgb(104, 175, 216)'){
+                            const t = document.body.style.backgroundColor = 'green';
+                        }else{const t = document.body.style.backgroundColor = 'rgb(104, 175, 216)'
+
+                        }
+            }
+                </script>
+            </div>
+            <div class="section">
+                <form name = "testerForm" onsubmit="return(formValidation())">
+                    <label>Text Tester: </label>
+                    <input type = 'text' id = "tester">
+                    <input type ='submit' value="Validate Text">
+        
+                    <script type="text/javascript">
+                        function formValidation(){
+                            const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                            if (validationRegex.test(testerForm.tester.value)){
+                                alert('How about....nah :(')
+                                return false
+                            }
+                            return true;
+                        }
+                    </script>
+                </form>
+            </div>
+            <div class="section">
+                <button onclick="AddText()">Add Text</button>
+
+                <script type = "text/javascript">
+                    var textAdded = false;
+                    function AddText(){
+                        var h1Elements = document.body.getElementsByTagName("h1");
+                        if (h1Elements.length > 0 && !textAdded) {
+                            h1Elements[0].innerHTML += " - Adding Text";
+                            textAdded = true;
+                            }
+                        return false;
+                    }   
+
+                </script>
+            </div>
+        </div>
+        
+    </body>
+</html>
